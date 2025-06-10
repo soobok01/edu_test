@@ -83,6 +83,11 @@ write.table(c3_metagenes_new[,1],'c3_metagene.txt',
 clusters <- apply(H, 2, which.max)
 print(table(clusters))
 
+write.table(clusters,'clusters.txt',
+           sep        = "\t",
+           quote      = FALSE,
+           row.names  = TRUE,
+           col.names  = FALSE)
 # 7) PCA를 통한 클러스터 시각화
 pca_out <- prcomp(t(expr_log2_top1000), scale. = TRUE)
 plot(pca_out$x[,1:2], col = clusters, pch = 16,
