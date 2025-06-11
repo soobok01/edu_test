@@ -4,7 +4,11 @@ setwd("C:/Users/KOBIC/Desktop/coad_gene_expression")
 
 
 #library install
-install.packages('NMF')
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("Biobase")
+if (!require("NMF", quietly = TRUE))
+  install.packages("NMF")
 
 #library load
 library(NMF)
